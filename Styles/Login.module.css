@@ -1,0 +1,61 @@
+/* General styles for the login container */
+.loginContainer {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20%;
+  }
+  
+  /* Styles for the form elements */
+  .formGroup {
+    margin-bottom: 15px;
+    
+  }
+  
+  .input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .input:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  /* Styles for the submit button */
+  .button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Styles for success and error messages */
+  .message {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .successMessage {
+    color: green;
+  }
+  
+  .errorMessage {
+    color: red;
+  }
+  

@@ -1,0 +1,109 @@
+/* Container for the entire section */
+.container {
+    background-color: #ffffff; /* White background for a clean look */
+    padding: 0px 20px 20px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Container for the cover image */
+.coverImageContainer {
+    position: relative;
+    height: 200px; /* Fixed height similar to YouTube banner */
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0; /* Rounded corners on the top only */
+}
+
+/* Style for the cover image */
+.coverImage {
+    width: 100%;
+    height: 100%;
+     /* Ensures the image covers the container */
+}
+
+/* Container for the profile section */
+.profileContainer {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    top: -50px; /* Overlap the profile picture with the cover image */
+}
+
+/* Container for the avatar */
+.avatarContainer {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 10; /* Ensure the avatar is above other content */
+}
+
+/* Style for the avatar image */
+.avatar {
+    width: 120px; /* Larger avatar */
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #ffffff; /* White border for contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Container for the profile info */
+.infoContainer {
+    flex: 1;
+    margin-left: 20px;
+    color: #000000; /* Black text color for readability */
+}
+
+/* Style for the username */
+.username {
+    color: #ffffff; 
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 
+    -1px -1px 0 #000000, /* Top-left shadow */
+    1px -1px 0 #000000,  /* Top-right shadow */
+    -1px 1px 0 #000000,  /* Bottom-left shadow */
+    1px 1px 0 #000000;
+    margin: 0 0 10px 0;
+}
+
+/* Style for the additional details like handle, subscribers, etc. */
+.details {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #606060; /* Gray color for details */
+    margin-bottom: 10px;
+}
+
+/* Style for the handle */
+.handle {
+    color: #007bff; /* Blue handle (username-like) */
+    margin-right: 15px;
+}
+
+/* Style for the stats (subscribers, videos) */
+.stats {
+    color: #606060;
+    margin-right: 15px;
+}
+
+/* Style for the description */
+.description {
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+/* Style for links */
+.links {
+    font-size: 16px;
+    color: #007bff; /* Blue color for links */
+}
+
+.links:hover {
+    text-decoration: underline; /* Underline on hover */
+}
