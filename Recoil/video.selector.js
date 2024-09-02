@@ -2,14 +2,14 @@ import { selector } from "recoil";
 import { videoState } from "./video.atom";
 import { authState } from "./login.atom";
 import axios from "axios";
-
+import { deleteatom } from "./video.atom";
 export const getvideoselector=selector({
     key:"getvideos",
     get: async ({ get }) => {
         const {videos}=get(videoState);
       const { accessToken } =get(authState);
         
-console.log("videoselector",accessToken);
+
 
       try {
         // Correctly include headers in the third argument
@@ -30,3 +30,44 @@ console.log("videoselector",accessToken);
       }
     }
 })
+
+
+
+
+export const deleteSelector=selector({
+  key:"deleteselector",
+  get:async({get})=>{
+    const {videoId}=get(deleteatom);
+    if(videoId===null){
+      return;
+    }
+    const {accessToken}=get(authState);
+    try {
+      const result=axios.delete(`http://localhost:3000/api/v1/video/delete/${videoId}`,
+      {
+        headers: {
+          'Authorization': `Bearer ${accessToken}`
+        }
+      })
+
+
+      if(result){
+        console.log("deleted");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+
+
+
+
+  }
+})
+
+
+
+
+
+
+

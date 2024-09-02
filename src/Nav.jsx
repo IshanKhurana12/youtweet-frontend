@@ -9,12 +9,20 @@ import styles from '../Styles/Nav.module.css'; // Import the CSS module
 import AuthMiddleware from './AuthMiddleware';
 import Allvideos from './Allvideos';
 import EditVideo from './EditVideo';
+import Videoplayer from './Videoplayer';
+import Feed from './Feed';
+import Signin from './Signin';
+import Upload from './Upload';
+import Updateavatar from './Updateavatar';
+import Manage from './Manage';
 
 export default function Nav() {
   const [auth] = useRecoilState(authState);
 
   return (
     <Router>
+      
+  
       <div className={styles.nav}>
         <nav>
           <ul className={styles.navList}>
@@ -30,8 +38,10 @@ export default function Nav() {
             <li className={styles.navItem}>
               <Link to="/profile" className={styles.navLink}>My Profile</Link>
             </li>
+      
+
             <li className={styles.navItem}>
-              <Link to="/allvideos" className={styles.navLink}>All Videos</Link>
+              <Link to="/feed" className={styles.navLink}>Feed</Link>
             </li>
           </ul>
         </nav>
@@ -45,8 +55,16 @@ export default function Nav() {
           <UserChannelReport />
           </AuthMiddleware>} />
          <Route path='/allvideos' element={<AuthMiddleware><Allvideos /></AuthMiddleware>} />
+         <Route path='/watch/:id' element={
+         <AuthMiddleware>
+          <Videoplayer />
+         </AuthMiddleware>} />
        <Route path='/editvideo/:videoid' element={<AuthMiddleware><EditVideo /> </AuthMiddleware>}   />
-       
+       <Route path='/feed' element={<AuthMiddleware> <Feed /></AuthMiddleware>} />
+       <Route path='/newuser' element={<Signin />} />
+       <Route path='/upload' element={<AuthMiddleware><Upload /></AuthMiddleware>} />
+       <Route path='/updateAvatar' element={<AuthMiddleware><Updateavatar /></AuthMiddleware>} />
+       <Route path='/manage' element={<AuthMiddleware><Manage /></AuthMiddleware>} />
         </Routes>
         
       </div>

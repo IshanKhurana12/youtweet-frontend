@@ -47,7 +47,7 @@ const loginSelector = selector({
         const {loggedout}=get(logout);
       const { accessToken } =get(authState);
         
-      console.log(accessToken);
+     
 
       try {
         // Correctly include headers in the third argument

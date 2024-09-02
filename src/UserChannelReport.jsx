@@ -15,11 +15,19 @@ export default function UserChannelReport() {
   function getallvideos(){
     navigate('/allvideos');
   }
-
+  
   const [auth] = useRecoilState(authState); // Use the auth state from Recoil
   const [reportData, setReportData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+
+
+
+
+
+
+
+
   useEffect(() => {
     // Ensure auth.user and auth.user.username are defined before making the API call
     if (auth.isAuthenticated && auth.user && auth.user.username) {
@@ -46,20 +54,36 @@ export default function UserChannelReport() {
   }, [auth]); // Dependency array to re-fetch if auth changes
 
 
-  console.log(typeof(reportData));
-  // Conditional rendering based on the state
-  if (!auth.isAuthenticated) {
-    return <div><h2>Please log in to view the report.</h2></div>;
+  const [watch,setwatch]=useState([]);
+useEffect(()=>{
+ async function getwatchhistory(){
+  const result = await axios.get(`http://localhost:3000/api/v1/users/getwatchhistory`, {
+    headers: {
+      'Authorization': `Bearer ${auth.accessToken}`
+    }
+  });
+    
+
+  if(result){
+   
+    setwatch(result.data.data);
+    
   }
 
-  
+  }
+ getwatchhistory()
+},[]);
+
+
+console.log(watch);
+
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
-
+<>
       <div className={styles.container}>
         <div className={styles.coverImageContainer}>
           {reportData.coverImage && (
@@ -69,7 +93,9 @@ export default function UserChannelReport() {
         <div className={styles.profileContainer}>
           <div className={styles.avatarContainer}>
             {reportData.avatar && (
+              <Link to={'/updateAvatar'} className={styles.l}>
               <img src={reportData.avatar} alt={`${reportData.username}'s avatar`} className={styles.avatar} />
+              </Link>
             )}
           </div>
           <div className={styles.infoContainer}>
@@ -81,8 +107,39 @@ export default function UserChannelReport() {
           </div>
         </div>
         <div>
-         <Link  to={'/allvideos'}><strong>Get all videos</strong> </Link>
+         <Link  to={'/allvideos'} className={styles.link}><strong>My videos</strong> </Link>
+         <Link  to={'/upload'} className={styles.link}><strong>Upload videos</strong> </Link>
+        <Link to={'/manage'} className={styles.link}><strong>Manage videos</strong></Link>
         </div>
+
+        </div>
+
+
+
+        <div>
+
+        </div>
+        <div className={styles.dw}>
+        <h2 className={styles.watch}>Watch History</h2>
+        </div>
+        <div className={styles.container}>
+       
+        {watch.length > 1 ? (
+        watch.map((item,id) => (
+        <Link to={`/watch/${item.watchHistoryDetails._id}`} > <div key={id} className={styles.watchItem}>
+            <img
+              src={item.watchHistoryDetails.thumbnail}
+              alt={item.watchHistoryDetails.title}
+              className={styles.thumbnail}
+            />
+            <h3 className={styles.title}>{item.watchHistoryDetails.title}</h3>
+          </div>
+          </Link>
+        ))
+      ) : (
+        <p className={styles.noData}>No watch history found.</p>
+      )}
       </div>
+    </>
   );
 }

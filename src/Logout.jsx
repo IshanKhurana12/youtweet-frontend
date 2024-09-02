@@ -32,7 +32,7 @@ export default function Logout() {
 
         setvideos([]);
 
-        console.log('Logged out successfully');
+      
         checker.current=true;
         // Redirect to login page
         navigate('/');

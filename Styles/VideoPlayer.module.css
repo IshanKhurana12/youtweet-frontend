@@ -1,0 +1,141 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #121212;
+    color: #333;
+    padding: 20px;
+  }
+  
+  .playerWrapper {
+    width: 100%;
+    max-width: 1200px;
+ 
+    margin-bottom: 20px;
+    background-color: #121212;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .reactPlayer {
+    width: auto !important;
+    height: auto !important;
+  }
+  
+  .detailsWrapper {
+    width: 80%;
+    max-width: 1000px;
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    font-size: 24px;
+    color: #1a73e8;
+    margin-bottom: 10px;
+  }
+  
+  .description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .userInfo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  .username {
+    font-size: 18px;
+    color: #333;
+  }
+
+
+  .commentsContainer {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #121212;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  .commentsTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .comment {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+  
+  .userAvatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .commentContent {
+    flex-grow: 1;
+  }
+  
+  .userDetails {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .username {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #ffffff;
+  }
+  
+  .commentDate {
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .commentText {
+    font-size: 14px;
+    color: #ffffff;
+  }
+  
+
+.subscribe {
+  background-color: #f20808; /* Blue color */
+  color: white;
+  width: fit-content;
+}
+.subscribe:hover{
+  
+  background-color: #f20808;
+}
+
+.unsubscribe {
+  background-color: #382424; /* Grey color */
+  color: #fffcfc;
+  width: fit-content;
+}
+.unsubscribe:hover{
+  background-color: #382424 ;
+}
+
+.button:hover {
+  opacity: 0.9;
+}

@@ -41,7 +41,7 @@ export default function Login() {
             });
 
           //navigate to progile page if its authenticated
-                navigate('/profile');
+                navigate('/feed');
             
            
         } catch (error) {
@@ -57,6 +57,10 @@ export default function Login() {
             [name]: value,
         }));
     };
+
+    function handlenewuser(){
+        navigate("/newuser");
+    }
 
  function signout(){
        navigate('/logout')
@@ -100,6 +104,11 @@ export default function Login() {
             </form>
             {auth.isAuthenticated && <div className={`${styles.message} ${styles.successMessage}`}>Login successful!</div>}
             {error && <div className={`${styles.message} ${styles.errorMessage}`}>Error: {error}</div>}
+       
+       
+            {!auth.isAuthenticated &&  <div><button onClick={handlenewuser} className={styles.button}>New User/Sign-up</button></div>}
+       
+       
         </div>
     );
 }

@@ -2,47 +2,45 @@
 
 /* General styling for the navigation */
 .nav {
-    background-color: #ffffff; /* White background */
-    padding: 1rem;
-    color: #000000; /* Black text color */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
- 
-  }
-  
-  /* Styling for the unordered list */
-  .navList {
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 10px;
-    display: flex;
-    gap: 1rem; /* Space between items */
-  }
-  
-  /* Styling for each navigation item */
-  .navItem {
-    margin: 0;
-  }
-  
-  /* Styling for links */
-  .navLink {
-    text-decoration: none;
-    color: #01080f; /* Blue text color */
-    font-weight: bold;
-    padding: 0.5rem 1rem; /* Padding around the text */
-    border-radius: 4px; /* Rounded corners for links */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
-  }
-  
-  /* Hover effect for links */
-  .navLink:hover {
-    color: #ffffff; /* White text on hover */
-    background-color: #007bff; /* Blue background on hover */
-  }
-  
-  /* Active link styling */
-  .navLinkActive {
-    color: #ffffff; /* White text for active link */
-    background-color: #0056b3; /* Darker blue background for active link */
-    border-bottom: 2px solid #0056b3; /* Darker blue underline */
-  }
-  
+  background-color: #121212; /* Dark background for navigation */
+  padding: 1rem;
+  color: #e0e0e0; /* Light text color for readability */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Darker shadow for depth */
+}
+
+/* Styling for the unordered list */
+.navList {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 10px;
+  display: flex;
+  gap: 1rem; /* Space between items */
+}
+
+/* Styling for each navigation item */
+.navItem {
+  margin: 0;
+}
+
+/* Styling for links */
+.navLink {
+  text-decoration: none;
+  color: #ffffff; /* Light purple color for links */
+  font-weight: bold;
+  padding: 0.5rem 1rem; /* Padding around the text */
+  border-radius: 4px; /* Rounded corners for links */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for links */
+.navLink:hover {
+  color: #000000; /* Dark text color on hover */
+  background-color: #ffffff; /* Light purple background on hover */
+}
+
+/* Active link styling */
+.navLinkActive {
+  color: #121212; /* Dark text color for active link */
+  background-color: #bb86fc; /* Light purple background for active link */
+  border-bottom: 2px solid #bb86fc; /* Light purple underline */
+}

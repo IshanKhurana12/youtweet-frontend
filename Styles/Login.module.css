@@ -1,61 +1,66 @@
 /* General styles for the login container */
 .loginContainer {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20%;
-  }
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #333; /* Dark border */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Darker shadow for contrast */
+  margin-top: 20%;
+  background-color: #1e1e1e; /* Dark background for container */
+  align-items: center;
   
-  /* Styles for the form elements */
-  .formGroup {
-    margin-bottom: 15px;
-    
-  }
-  
-  .input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  .input:focus {
-    border-color: #3498db;
-    outline: none;
-  }
-  
-  /* Styles for the submit button */
-  .button {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #3498db;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .button:hover {
-    background-color: #2980b9;
-  }
-  
-  /* Styles for success and error messages */
-  .message {
-    margin-top: 10px;
-    font-size: 14px;
-  }
-  
-  .successMessage {
-    color: green;
-  }
-  
-  .errorMessage {
-    color: red;
-  }
-  
+}
+
+/* Styles for the form elements */
+.formGroup {
+
+  margin-bottom: 15px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #444; /* Darker border */
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #2c2c2c; /* Dark input background */
+  color: #e0e0e0; /* Light text color */
+}
+
+.input:focus {
+  border-color: #bb86fc; /* Highlight color for focus */
+  outline: none;
+}
+
+/* Styles for the submit button */
+.button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #000000; /* Material Design Purple */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button:hover {
+  background-color: #8c6dfd; /* Darker purple on hover */
+}
+
+/* Styles for success and error messages */
+.message {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.successMessage {
+  color: #00e676; /* Light green for success */
+}
+
+.errorMessage {
+  color: #ff5252; /* Light red for errors */
+}

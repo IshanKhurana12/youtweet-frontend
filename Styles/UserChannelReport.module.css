@@ -1,41 +1,65 @@
 /* Container for the entire section */
 .container {
-    background-color: #ffffff; /* White background for a clean look */
-    padding: 0px 20px 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #121212; /* Dark background for the container */
+    padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Darker shadow for a premium feel */
 }
+
+.watch{
+    align-items: center;
+}
+
+.dw{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 10px;
+}
+
 
 /* Container for the cover image */
 .coverImageContainer {
     position: relative;
-    height: 200px; /* Fixed height similar to YouTube banner */
     width: 100%;
+    padding-top: 20%; /* Maintain 16:9 aspect ratio */
     overflow: hidden;
-    border-radius: 8px 8px 0 0; /* Rounded corners on the top only */
+    border-radius: 8px;
+    margin-bottom: 20px; /* Space for profile section */
 }
 
 /* Style for the cover image */
 .coverImage {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-     /* Ensures the image covers the container */
+   object-fit: contain;
+    filter: brightness(70%); /* Slightly dim the image for contrast */
 }
 
 /* Container for the profile section */
 .profileContainer {
     display: flex;
+    flex-direction: column; /* Stack profile info vertically */
     align-items: center;
     padding: 20px;
-    position: relative;
-    top: -50px; /* Overlap the profile picture with the cover image */
+    background-color: #1e1e1e; /* Dark background for the profile section */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Darker shadow for a premium look */
 }
 
 /* Container for the avatar */
 .avatarContainer {
-    margin-right: 20px;
+    position: relative;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     z-index: 10; /* Ensure the avatar is above other content */
@@ -43,67 +67,157 @@
 
 /* Style for the avatar image */
 .avatar {
-    width: 120px; /* Larger avatar */
-    height: 120px;
+    width: 25vw; /* Responsive width based on viewport width */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100px; /* Maximum size */
     border-radius: 50%;
-    border: 4px solid #ffffff; /* White border for contrast */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 4px solid #1e1e1e; /* Dark border for contrast */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Darker shadow for a more premium look */
+    transition: opacity 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Overlay for change avatar prompt */
+.avatarContainer::after {
+    content: "Change Avatar"; /* Text to display on hover */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background */
+    color: #ffffff; /* White text color */
+   
+    border-radius: 4px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Smooth transition for hover effect */
+    font-size: 14px;
+}
+
+/* Show the overlay on hover */
+.avatarContainer:hover::after {
+    opacity: 1;
 }
 
 /* Container for the profile info */
 .infoContainer {
-    flex: 1;
-    margin-left: 20px;
-    color: #000000; /* Black text color for readability */
+    text-align: center; /* Center align profile info */
+    color: #e0e0e0; /* Light text color for readability */
 }
 
 /* Style for the username */
 .username {
-    color: #ffffff; 
-    font-size: 28px;
+    color: #ffffff; /* White text color */
+    font-size: 4vw; /* Responsive font size */
     font-weight: bold;
     text-shadow: 
-    -1px -1px 0 #000000, /* Top-left shadow */
-    1px -1px 0 #000000,  /* Top-right shadow */
-    -1px 1px 0 #000000,  /* Bottom-left shadow */
-    1px 1px 0 #000000;
+        -1px -1px 0 #000000, /* Top-left shadow */
+        1px -1px 0 #000000,  /* Top-right shadow */
+        -1px 1px 0 #000000,  /* Bottom-left shadow */
+        1px 1px 0 #000000;   /* Bottom-right shadow */
     margin: 0 0 10px 0;
 }
 
 /* Style for the additional details like handle, subscribers, etc. */
 .details {
     display: flex;
+    flex-direction: column; /* Stack details vertically */
     align-items: center;
-    font-size: 16px;
-    color: #606060; /* Gray color for details */
+    font-size: 2vw; /* Responsive font size */
+    color: #b0b0b0; /* Light gray color for details */
     margin-bottom: 10px;
 }
 
 /* Style for the handle */
 .handle {
-    color: #007bff; /* Blue handle (username-like) */
-    margin-right: 15px;
+    color: #1e90ff; /* Blue color for handle */
+    margin-bottom: 10px;
 }
 
 /* Style for the stats (subscribers, videos) */
 .stats {
-    color: #606060;
-    margin-right: 15px;
+    color: #b0b0b0; /* Light gray color for stats */
+    margin-bottom: 10px;
 }
 
 /* Style for the description */
 .description {
-    font-size: 16px;
-    color: #333333;
+    font-size: 2vw; /* Responsive font size */
+    color: #e0e0e0; /* Light text color for description */
     margin-bottom: 10px;
 }
 
 /* Style for links */
 .links {
-    font-size: 16px;
-    color: #007bff; /* Blue color for links */
+    font-size: 2vw; /* Responsive font size */
+    color: #1e90ff; /* Blue color for links */
 }
 
 .links:hover {
     text-decoration: underline; /* Underline on hover */
+}
+
+/* Style for the link button */
+.link {
+    text-decoration: none;
+    color: #e0e0e0; /* Light color for link button */
+    margin: 5px;
+    border: 1px solid #e0e0e0; /* Light border color */
+    padding: 10px;
+    font-size: 2vw; /* Responsive font size */
+    border-radius: 4px; /* Rounded corners for button */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+    display: inline-block;
+    text-align: center;
+    width: auto; /* Adjust width based on content */
+}
+
+
+/* Watch items container */
+.watchItemsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #121212; /* Dark background for the container */
+}
+
+/* Watch item card */
+.watchItem {
+    border: 1px solid #333; /* Darker border color for items */
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%; /* Full width on smaller screens */
+    max-width: 220px; /* Maximum width for large screens */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Darker shadow for premium look */
+    background-color: #1e1e1e; /* Dark background for items */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+    margin: 10px; /* Center align item */
+}
+
+/* Thumbnail image */
+.thumbnail {
+    width: 200px;
+    padding: 10px; /* Responsive width */
+    height: 200px; /* Maintain aspect ratio */
+    display: block;
+}
+
+/* Title style */
+.title {
+    font-size: 2vw; /* Responsive font size */
+    font-weight: 500;
+    padding: 10px;
+    text-align: center;
+    color: #e0e0e0; /* Light text color for title */
+}
+
+/* No data message */
+.noData {
+    text-align: center;
+    font-size: 2vw; /* Responsive font size */
+    color: #888; /* Light gray color for no data text */
+}
+
+/* Hover effect for watch items */
+.watchItem:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
