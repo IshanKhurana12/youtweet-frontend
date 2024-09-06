@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil';
 import { authState } from '../Recoil/login.atom';
 import { useNavigate } from 'react-router-dom';
 import styles from '../Styles/Upload.module.css';
-
+const baseUrl = 'https://youtweet.onrender.com';
 export default function VideoUpload() {
   const [videoFile, setVideoFile] = useState(null);
   const [thumbnail, setThumbnail] = useState(null);
@@ -34,7 +34,7 @@ export default function VideoUpload() {
     formData.append('description', description);
 
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/video/videoupload', formData, {
+      const response = await axios.post(`${baseUrl}/api/v1/video/videoupload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${auth.accessToken}` 

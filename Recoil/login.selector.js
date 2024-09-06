@@ -2,6 +2,7 @@ import { selector, useRecoilValueLoadable } from "recoil";
 import { authState, logindetails } from "./login.atom.js";
 import axios from "axios";
 import { logout } from "./login.atom.js";
+const baseUrl = 'https://youtweet.onrender.com';
 const loginSelector = selector({
     key: "loginSelector",
     get: async ({ get }) => {
@@ -18,7 +19,7 @@ const loginSelector = selector({
         try {
             // Send a POST request to the login endpoint
             const response = await axios.post(
-                "http://localhost:3000/api/v1/users/login",
+                `${baseUrl}/api/v1/users/login`,
                 { username, email, password },
                 {
                     headers: {
@@ -52,7 +53,7 @@ const loginSelector = selector({
       try {
         // Correctly include headers in the third argument
         const response = await axios.post(
-          'http://localhost:3000/api/v1/users/logout',
+          `${baseUrl}/api/v1/users/logout`,
           {}, // The body of the POST request (empty in this case)
           {
             headers: {

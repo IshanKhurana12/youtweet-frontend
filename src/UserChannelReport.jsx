@@ -4,7 +4,7 @@ import { authState } from '../Recoil/login.atom';
 import axios from 'axios';
 import styles from "../Styles/UserChannelReport.module.css";
 
-
+const baseUrl = 'https://youtweet.onrender.com';
 import { Link, useNavigate } from 'react-router-dom';
 
 
@@ -34,12 +34,12 @@ const [subcount,setsubcount]=useState(0);
       const fetchReportData = async () => {
         try {
          
-          const result = await axios.get(`http://localhost:3000/api/v1/users/channel/${auth.user.username}`, {
+          const result = await axios.get(`${baseUrl}/api/v1/users/channel/${auth.user.username}`, {
             headers: {
               'Authorization': `Bearer ${auth.accessToken}`
             }
           });
-          const count = await axios.get(`http://localhost:3000/api/v1/sub/getcount`, {
+          const count = await axios.get(`${baseUrl}/api/v1/sub/getcount`, {
             headers: {
               'Authorization': `Bearer ${auth.accessToken}`
             }
@@ -63,7 +63,7 @@ const [subcount,setsubcount]=useState(0);
   const [watch,setwatch]=useState([]);
 useEffect(()=>{
  async function getwatchhistory(){
-  const result = await axios.get(`http://localhost:3000/api/v1/users/getwatchhistory`, {
+  const result = await axios.get(`${baseUrl}/api/v1/users/getwatchhistory`, {
     headers: {
       'Authorization': `Bearer ${auth.accessToken}`
     }
@@ -135,7 +135,7 @@ console.log(watch);
        
         {watch.length > 1 ? (
         watch.map((item,id) => (
-        <Link to={`/watch/${item.watchHistoryDetails._id}`} > <div key={id} className={styles.watchItem}>
+        <Link key={id} to={`/watch/${item.watchHistoryDetails._id}`} > <div key={id} className={styles.watchItem}>
             <img
               src={item.watchHistoryDetails.thumbnail}
               alt={item.watchHistoryDetails.title}

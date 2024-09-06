@@ -4,7 +4,7 @@ import axios from "axios";
 import { authState } from "./login.atom";
 import { unsubscribed } from "./unsubscribe.atom";
 
-
+const baseUrl = 'https://youtweet.onrender.com';
 export const unsubSelector=selector({
     key:"unsubornot",
     get:async ({ get }) =>{
@@ -18,7 +18,7 @@ export const unsubSelector=selector({
             }
       try {
               const res=await axios.post(
-                  'http://localhost:3000/api/v1/sub/unsubscribe',
+                  `${baseUrl}/api/v1/sub/unsubscribe`,
                   {
                       channelId:channelId
                   }, // The body of the POST request (empty in this case)

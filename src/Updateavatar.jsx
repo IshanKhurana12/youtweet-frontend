@@ -3,7 +3,7 @@ import { authState } from '../Recoil/login.atom'
 import {useRecoilState } from 'recoil'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+const baseUrl = 'https://youtweet.onrender.com';
 
 export default function Updateavatar() {
     const [auth]=useRecoilState(authState);
@@ -23,7 +23,7 @@ const navigate=useNavigate();
 
   setLoading(true);
 try {
-    const result=await axios.patch("http://localhost:3000/api/v1/users/updateavatar",formData,{
+    const result=await axios.patch(`${baseUrl}/api/v1/users/updateavatar`,formData,{
       headers: {
         'Content-Type': 'multipart/form-data',
         'Authorization': `Bearer ${auth.accessToken}`

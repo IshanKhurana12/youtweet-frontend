@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from "../Styles/Signin.module.css";
-
+const baseUrl = 'https://youtweet.onrender.com';
 export default function Signin() {
     const navigate = useNavigate();
     const [auth] = useRecoilState(authState);
@@ -32,7 +32,7 @@ export default function Signin() {
         formData.append('coverImage', coverImage);
 
         try {
-            const response = await axios.post('http://localhost:3000/api/v1/users/register', formData, {
+            const response = await axios.post(`${baseUrl}/api/v1/users/register`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

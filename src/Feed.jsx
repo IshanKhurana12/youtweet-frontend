@@ -4,7 +4,7 @@ import styles from "../Styles/Feed.module.css";
 import { useRecoilState } from 'recoil';
 import { authState } from '../Recoil/login.atom';
 import { useNavigate } from 'react-router-dom';
-
+const baseUrl = 'https://youtweet.onrender.com';
 
 export default function Feed() {
   const [videos, setVideos] = useState([]);
@@ -20,7 +20,7 @@ export default function Feed() {
     const fetchVideos = async () => {
       setLoading(true);
       try {
-        const result = await axios.get(`http://localhost:3000/api/v1/video/getfeed?page=${page}&limit=25`, {
+        const result = await axios.get(`${baseUrl}/api/v1/video/getfeed?page=${page}&limit=25`, {
           headers: {
             'Authorization': `Bearer ${auth.accessToken}`
           }

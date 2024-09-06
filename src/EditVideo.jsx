@@ -7,7 +7,7 @@ import { authState } from '../Recoil/login.atom';
 import { useRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 
-
+const baseUrl = 'https://youtweet.onrender.com';
 
 export default function EditVideo() {
 
@@ -22,7 +22,7 @@ const [auth]=useRecoilState(authState);
  async function handlesubmit(e){
     e.preventDefault();
     try {
-        const result=await axios.patch(`http://localhost:3000/api/v1/video/edit/${videoid}`,
+        const result=await axios.patch(`${baseUrl}/api/v1/video/edit/${videoid}`,
         {
             title:title,
             description:description

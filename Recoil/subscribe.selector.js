@@ -3,7 +3,7 @@ import { issubscribed } from "./subscribe.atom";
 import axios from "axios";
 import { authState } from "./login.atom";
 
-
+const baseUrl = 'https://youtweet.onrender.com';
 export const subSelector=selector({
     key:"subornot",
     get:async ({ get }) =>{
@@ -17,7 +17,7 @@ export const subSelector=selector({
             }
       try {
               const res=await axios.post(
-                  'http://localhost:3000/api/v1/sub/subscribe',
+                  `${baseUrl}/api/v1/sub/subscribe`,
                   {
                       channelId:channelId
                   }, // The body of the POST request (empty in this case)

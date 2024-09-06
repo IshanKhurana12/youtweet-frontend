@@ -3,7 +3,7 @@ import { videoState } from "./video.atom";
 import { authState } from "./login.atom";
 import axios from "axios";
 import { deleteatom } from "./video.atom";
-
+const baseUrl = 'https://youtweet.onrender.com';
 export const getvideoselector=selector({
     key:"getvideos",
     get: async ({ get }) => {
@@ -15,7 +15,7 @@ export const getvideoselector=selector({
       try {
         // Correctly include headers in the third argument
         const response = await axios.get(
-          'http://localhost:3000/api/v1/video/getallvideos',
+          `${baseUrl}/api/v1/video/getallvideos`,
           {
             headers: {
               'Authorization': `Bearer ${accessToken}`
@@ -44,7 +44,7 @@ export const deleteSelector=selector({
     }
     const {accessToken}=get(authState);
     try {
-      const result=await axios.delete(`http://localhost:3000/api/v1/video/delete/${videoId}`,
+      const result=await axios.delete(`${baseUrl}/api/v1/video/delete/${videoId}`,
       {
         headers: {
           'Authorization': `Bearer ${accessToken}`

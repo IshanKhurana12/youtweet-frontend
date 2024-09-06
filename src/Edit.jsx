@@ -12,7 +12,7 @@ export default function Edit() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-
+  const baseUrl = 'https://youtweet.onrender.com';
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
   };
@@ -28,7 +28,7 @@ export default function Edit() {
     setError(null); // Reset error before starting the request
 
     try {
-      const result = await axios.patch("http://localhost:3000/api/v1/users/updatecoverimage", formData, {
+      const result = await axios.patch(`${baseUrl}/api/v1/users/updatecoverimage`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${auth.accessToken}`
@@ -53,7 +53,7 @@ export default function Edit() {
     setError(null); // Reset error before starting the request
 
     try {
-      const result = await axios.patch("http://localhost:3000/api/v1/users/updatedetails", {
+      const result = await axios.patch(`${baseUrl}/api/v1/users/updatedetails`, {
         email: email,
         fullName: fullName
       }, {

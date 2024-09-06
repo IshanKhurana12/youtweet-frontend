@@ -9,7 +9,7 @@ import { issubscribed } from '../Recoil/subscribe.atom';
 import { unsubscribed } from '../Recoil/unsubscribe.atom';
 import { subSelector } from '../Recoil/subscribe.selector';
 import { unsubSelector } from '../Recoil/unsubscribe.selector';
-
+const baseUrl = 'https://youtweet.onrender.com';
 export default function Videoplayer() {
     const [video, setVideo] = useState(null);
     const [auth] = useRecoilState(authState);
@@ -24,7 +24,7 @@ export default function Videoplayer() {
     useEffect(() => {
         async function fetchVideo() {
             try {
-                const result = await axios.get(`http://localhost:3000/api/v1/video/getsinglevideo/${id}`, {
+                const result = await axios.get(`${baseUrl}/api/v1/video/getsinglevideo/${id}`, {
                     headers: {
                         'Authorization': `Bearer ${auth.accessToken}`
                     }
@@ -44,7 +44,7 @@ export default function Videoplayer() {
     const addComment = async (e) => {
         e.preventDefault();
         try {
-            const result = await axios.post(`http://localhost:3000/api/v1/comments/add/${id}`, {
+            const result = await axios.post(`${baseUrl}/api/v1/comments/add/${id}`, {
                 comment: add
             }, {
                 headers: {
@@ -63,7 +63,7 @@ export default function Videoplayer() {
     // Fetch comments
     const fetchComments = async () => {
         try {
-            const result = await axios.get(`http://localhost:3000/api/v1/video/getallcomments/${id}`, {
+            const result = await axios.get(`${baseUrl}/api/v1/video/getallcomments/${id}`, {
                 headers: {
                     'Authorization': `Bearer ${auth.accessToken}`
                 }
@@ -81,7 +81,7 @@ const [likestatus,setlikestatus]=useState(false);
    async function addlikes(){
 
         try {
-            const result=await axios.post(`http://localhost:3000/api/v1/video/like/${id}`,{},
+            const result=await axios.post(`${baseUrl}/api/v1/video/like/${id}`,{},
             {
               headers: {
                 'Authorization': `Bearer ${auth.accessToken}`
@@ -105,7 +105,7 @@ const [likestatus,setlikestatus]=useState(false);
         if (video) {
             const getStatus = async () => {
                 try {
-                    const result = await axios.post("http://localhost:3000/api/v1/sub/getstatus", {
+                    const result = await axios.post(`${baseUrl}/api/v1/sub/getstatus`, {
                         channelId: video.data.owner._id
                     }, {
                         headers: {
@@ -123,7 +123,7 @@ const [likestatus,setlikestatus]=useState(false);
 
                     
         
-            const result2=await axios.post(`http://localhost:3000/api/v1/video/likestatus/${id}`,{},
+            const result2=await axios.post(`${baseUrl}/api/v1/video/likestatus/${id}`,{},
             {
               headers: {
                 'Authorization': `Bearer ${auth.accessToken}`

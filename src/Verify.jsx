@@ -4,7 +4,7 @@ import styles from '../Styles/Verify.module.css'; // Import CSS Module
 import { authState } from '../Recoil/login.atom';
 import { useRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
-
+const baseUrl = 'https://youtweet.onrender.com';
 export default function Verify() {
   const [email, setEmail] = useState(''); // State to store user's email
   const [otp, setOtp] = useState(''); // State to store OTP
@@ -25,7 +25,7 @@ export default function Verify() {
   const sendMail = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:3000/api/v1/users/sendmail', {
+      const response = await axios.get(`${baseUrl}/api/v1/users/sendmail`, {
         headers: {
           'Authorization': `Bearer ${auth.accessToken}`, // Use auth.accessToken in header
         },
@@ -51,7 +51,7 @@ export default function Verify() {
 
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:3000/api/v1/users/verify', 
+      const response = await axios.post(`${baseUrl}/api/v1/users/verify`, 
         { email, otp }, // Send email and OTP in the body
         {
           headers: {
