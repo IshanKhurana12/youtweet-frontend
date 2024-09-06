@@ -21,7 +21,7 @@ export default function UserChannelReport() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-
+const [subcount,setsubcount]=useState(0);
 
 
 
@@ -39,7 +39,13 @@ export default function UserChannelReport() {
               'Authorization': `Bearer ${auth.accessToken}`
             }
           });
-        
+          const count = await axios.get(`http://localhost:3000/api/v1/sub/getcount`, {
+            headers: {
+              'Authorization': `Bearer ${auth.accessToken}`
+            }
+          });
+
+         setsubcount(count.data.data);
           setReportData(result.data.data);
     
         } catch (err) {
@@ -82,6 +88,9 @@ console.log(watch);
     return <div>Loading...</div>;
   }
 
+  function editdata(){
+    navigate('/editdata');
+  }
   return (
 <>
       <div className={styles.container}>
@@ -101,9 +110,9 @@ console.log(watch);
           <div className={styles.infoContainer}>
             <h1 className={styles.username}>{reportData.username}</h1>
             <h2 className={styles.fullName}>{reportData.fullName}</h2>
-            <p className={styles.stats}><strong>Subscribers Count:</strong> {reportData.subscribersCount}</p>
-            <p className={styles.stats}><strong>Channels Subscribed:</strong> {reportData.channelsSubscribedToCount}</p>
-            <p className={styles.stats}><strong>Email:</strong> {reportData.email}</p>
+            <p className={styles.stats}><strong>Subscribers Count:</strong> {subcount}</p>
+            <p className={styles.stats}><strong>Contact:</strong> {reportData.email}</p>
+            <button onClick={editdata}>update details</button>
           </div>
         </div>
         <div>
@@ -120,7 +129,7 @@ console.log(watch);
 
         </div>
         <div className={styles.dw}>
-        <h2 className={styles.watch}>Watch History</h2>
+        <h2 className={styles.watch}>Recently watched</h2>
         </div>
         <div className={styles.container}>
        
@@ -133,6 +142,7 @@ console.log(watch);
               className={styles.thumbnail}
             />
             <h3 className={styles.title}>{item.watchHistoryDetails.title}</h3>
+            <h5>{item.views}</h5>
           </div>
           </Link>
         ))

@@ -46,6 +46,7 @@ const navigate=useNavigate();
 
     if (videosLoadable.state === 'hasValue') {
       setVideos(videosLoadable.contents.data);
+    
       setchecker(true);
     }
     // Handle error or loading states if necessary
@@ -54,6 +55,7 @@ const navigate=useNavigate();
 
   //on unmount cleanup
   useEffect(() => {
+    console.log(videos);
     setchecker(false);
   
   }, []);
@@ -65,6 +67,7 @@ const navigate=useNavigate();
     navigate(`/watch/${id}`);
   }
 
+
   return (
   <>
      <div className={styles.container}>
@@ -74,7 +77,8 @@ const navigate=useNavigate();
           <img src={video.thumbnail} alt={video.title} className={styles.thumbnail} />
           <div className={styles.info}>
             <h2 className={styles.title}>{video.title}</h2>
-            <p className={styles.description}>{video.description}</p>
+            <p className={styles.description}>description: {video.description}</p>
+            <p className={styles.description}> {video.views} views</p>
             <button className={styles.watchButton} onClick={()=>watchvideo(video._id)}>Watch video</button>
         
             <button className={styles.watchButton} onClick={()=>editvideo(video._id)}>edit</button>

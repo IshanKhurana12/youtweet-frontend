@@ -3,6 +3,7 @@ import { videoState } from "./video.atom";
 import { authState } from "./login.atom";
 import axios from "axios";
 import { deleteatom } from "./video.atom";
+
 export const getvideoselector=selector({
     key:"getvideos",
     get: async ({ get }) => {
@@ -43,7 +44,7 @@ export const deleteSelector=selector({
     }
     const {accessToken}=get(authState);
     try {
-      const result=axios.delete(`http://localhost:3000/api/v1/video/delete/${videoId}`,
+      const result=await axios.delete(`http://localhost:3000/api/v1/video/delete/${videoId}`,
       {
         headers: {
           'Authorization': `Bearer ${accessToken}`
@@ -64,6 +65,9 @@ export const deleteSelector=selector({
 
   }
 })
+
+
+
 
 
 

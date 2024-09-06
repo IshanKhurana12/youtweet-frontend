@@ -55,7 +55,7 @@ export default function Signin() {
             <h2 className={styles.title}>Sign In</h2>
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.formGroup}>
-                    <label htmlFor="username">Username</label>
+                    <label htmlFor="username">Channel Name</label>
                     <input
                         type="text"
                         id="username"
@@ -79,7 +79,7 @@ export default function Signin() {
                 </div>
 
                 <div className={styles.formGroup}>
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email">Email enter correct email id for verification purpose</label>
                     <input
                         type="email"
                         id="email"

@@ -19,7 +19,7 @@ export default function Videoplayer() {
     const [unsub, setUnsub] = useRecoilState(unsubscribed);
     const [add, setAdd] = useState("");
     const { id } = useParams();
-
+   
     // Fetch video data
     useEffect(() => {
         async function fetchVideo() {
@@ -76,6 +76,30 @@ export default function Videoplayer() {
         }
     };
 
+const [like,setlike]=useState(0);
+const [likestatus,setlikestatus]=useState(false);
+   async function addlikes(){
+
+        try {
+            const result=await axios.post(`http://localhost:3000/api/v1/video/like/${id}`,{},
+            {
+              headers: {
+                'Authorization': `Bearer ${auth.accessToken}`
+              }
+            })
+      
+      
+            if(result){
+             setlike(result.data.data.likecount)
+            }
+            setlikestatus(!likestatus)
+          } catch (error) {
+            console.log(error);
+          }
+    }
+
+
+
     // Fetch subscription status
     useEffect(() => {
         if (video) {
@@ -88,10 +112,27 @@ export default function Videoplayer() {
                             'Authorization': `Bearer ${auth.accessToken}`
                         }
                     });
+
+
+                    
                     if (result) {
-                     
+                      
+                   setlike(video.data.likes.length)
                         setLocalSub(result.data.data.isSubscribed);
                     }
+
+                    
+        
+            const result2=await axios.post(`http://localhost:3000/api/v1/video/likestatus/${id}`,{},
+            {
+              headers: {
+                'Authorization': `Bearer ${auth.accessToken}`
+              }
+            })
+        
+        setlikestatus(result2.data.data);
+console.log(result2);
+
                 } catch (error) {
                     console.error("Error fetching subscription status:", error);
                 }
@@ -99,8 +140,12 @@ export default function Videoplayer() {
 
             getStatus();
             fetchComments();
+
+            
         }
     }, [video]);
+
+
 
     // Subscribe logic
     const subLoadable = useRecoilValueLoadable(subSelector);
@@ -154,7 +199,10 @@ export default function Videoplayer() {
                             ) : (
                                 <button className={styles.unsubscribe} onClick={() => unsubscribeTo(video.data.owner._id)}>Unsubscribe</button>
                             )}
+
+                         
                         </div>
+                        <button onClick={addlikes}>{like} Likes</button>
                     </div>
                 </div>
             )}

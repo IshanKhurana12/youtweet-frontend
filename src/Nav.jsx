@@ -15,6 +15,8 @@ import Signin from './Signin';
 import Upload from './Upload';
 import Updateavatar from './Updateavatar';
 import Manage from './Manage';
+import Edit from './Edit';
+import Verify from './Verify';
 
 export default function Nav() {
   const [auth] = useRecoilState(authState);
@@ -65,6 +67,8 @@ export default function Nav() {
        <Route path='/upload' element={<AuthMiddleware><Upload /></AuthMiddleware>} />
        <Route path='/updateAvatar' element={<AuthMiddleware><Updateavatar /></AuthMiddleware>} />
        <Route path='/manage' element={<AuthMiddleware><Manage /></AuthMiddleware>} />
+       <Route path='/editdata' element={<AuthMiddleware><Edit /></AuthMiddleware>} />
+       <Route path='/verify' element={<AuthMiddleware><Verify /></AuthMiddleware>} />
         </Routes>
         
       </div>

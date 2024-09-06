@@ -1,0 +1,79 @@
+/* Container for the entire component */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #000000;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form section styling */
+  form {
+    margin-bottom: 20px;
+  }
+  
+  /* Styles for input fields */
+  input[type="text"],
+  input[type="email"],
+  input[type="file"] {
+    width: calc(100% - 20px);
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  /* Styles for submit buttons */
+  button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    background-color: #007bff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, opacity 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:disabled {
+    background-color: #000000;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  /* Styles for error messages */
+  .error {
+    color: #e74c3c;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  /* Styles for form labels */
+  label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+    color: #ffffff;
+    font-weight: 600;
+  }
+  
+  /* Additional spacing for form elements */
+  input[type="file"] {
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"],
+  input[type="email"] {
+    margin-bottom: 20px;
+  }
+  

@@ -41,7 +41,7 @@ export default function Login() {
             });
 
           //navigate to progile page if its authenticated
-                navigate('/feed');
+                navigate('/verify');
             
            
         } catch (error) {
@@ -75,7 +75,7 @@ export default function Login() {
                         name="username"
                         value={data.username}
                         onChange={handleChange}
-                        placeholder="Username"
+                        placeholder="ChannelName"
                         className={styles.input}
                     />
                 </div>

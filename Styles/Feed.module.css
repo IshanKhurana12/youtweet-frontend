@@ -6,6 +6,32 @@
   color: #e0e0e0; /* Light text color for readability */
 }
 
+  .avatar {
+    width: 48px; /* Set a fixed size */
+    height: 48px; /* Set a fixed size */
+    border-radius: 50%; /* Make it circular */
+    border: 2px solid #fff; /* White border for contrast */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for a lifted effect */
+    object-fit: cover; /* Ensures image fits within the circle */
+    margin-top: -24px; /* Move it slightly up to overlap the thumbnail */
+    position: relative; /* Allows positioning adjustments */
+    z-index: 1; /* Ensure it appears above other content */
+  }
+.search{
+  width: 300px;
+  height: 40px;
+  display: inline;
+}
+  .voicesearch{
+    width: 50px;
+    height: 40px;
+    display: inline;
+  }
+
+  .voicesearch:active{
+    background-color: #333;
+  }
+
 .videoList {
   display: flex;
   flex-wrap: wrap;
@@ -59,3 +85,10 @@
   font-size: 18px;
   color: #e0e0e0; /* Light text color */
 }
+
+/* VoiceSearch.css */
+
+
+
+
+
