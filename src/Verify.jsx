@@ -18,7 +18,7 @@ export default function Verify() {
     if(auth.user.verify==true){
         navigate('/feed');
          }
- },[])
+ },[auth.user.verify, navigate])
 
     
   // Function to send the email with OTP
@@ -32,9 +32,9 @@ export default function Verify() {
       });
 
       setLoading(false);
-
+      console.log(auth.user.email);
       if (response.status === 200) {
-        setEmail(response.data.email); // Assuming email is returned from the backend
+        setEmail(auth.user.email); // Assuming email is returned from the backend
         setMessage('OTP sent to your email. Please check your inbox.');
       } else {
         setMessage(`Error: ${response.data.message}`);
@@ -64,11 +64,13 @@ export default function Verify() {
 
       if (response.status === 200) {
         setMessage('OTP verified successfully! You are now verified.');
+        navigate('/feed')
       } else {
         setMessage(`Verification failed: ${response.data.message}`);
       }
     } catch (error) {
       setLoading(false);
+      console.log(error)
       setMessage('Error verifying OTP.');
     }
   };

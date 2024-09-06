@@ -45,6 +45,10 @@ export default function Nav() {
             <li className={styles.navItem}>
               <Link to="/feed" className={styles.navLink}>Feed</Link>
             </li>
+
+            <li className={styles.navItem}>
+              <Link to="/verify" className={styles.navLink}>Verify</Link>
+            </li>
           </ul>
         </nav>
    
